@@ -5,6 +5,9 @@ on:
     branches: [main, master]
   workflow_dispatch:   # 允许手动触发
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -29,7 +32,7 @@ jobs:
       - name: Build APK
         run: |
           cd $GITHUB_WORKSPACE
-          buildozer android debug
+          buildozer android debug 2>&1
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
@@ -37,3 +40,11 @@ jobs:
           name: PrivateDiary-APK
           path: bin/*.apk
           retention-days: 30
+
+      - name: Upload build log on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-logs
+          path: .buildozer/android/platform/build-*/**/*.log
+          retention-days: 7

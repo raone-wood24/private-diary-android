@@ -45,7 +45,7 @@ android.services = reminder:libs/personalization/android_reminder.py
 android.logcat_filters = *:S python:D
 
 # Release
-android.release_artifact = aab
+android.release_artifact = apk
 
 [buildozer]
 log_level = 2
