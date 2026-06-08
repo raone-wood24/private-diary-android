@@ -3,7 +3,7 @@ name: Build Android APK
 on:
   push:
     branches: [main, master]
-  workflow_dispatch:   # 允许手动触发
+  workflow_dispatch:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -23,7 +23,7 @@ jobs:
             python3-pip python3-dev build-essential \
             libssl-dev libffi-dev zlib1g-dev \
             git autoconf libtool pkg-config \
-            libncurses5-dev libtinfo5 cmake \
+            libncurses-dev cmake \
             libsqlite3-dev openjdk-17-jdk \
             unzip zip lld
 
