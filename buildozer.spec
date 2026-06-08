@@ -9,7 +9,7 @@ source.include_exts = py,png,jpg,kv,ttf,md
 
 version = 0.1.0
 
-requirements = python3==3.12.7,kivy==2.3.0,kivymd>=2.0.0,cryptography>=43.0.0,jieba,plyer,pillow
+requirements = hostpython3==3.12.7,python3==3.12.7,kivy==2.3.0,kivymd>=2.0.0,cryptography>=43.0.0,jieba,plyer,pillow
 
 orientation = portrait
 
